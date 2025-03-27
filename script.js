@@ -26,3 +26,21 @@ window.onclick = function(event) {
         modal1.style.display = "none";
     }
 }
+
+
+var change = document.getElementById("change");
+var btn = document.getElementById("changeBtn");
+var overlay = document.createElement("div");
+
+overlay.className = "overlay";
+document.body.appendChild(overlay);
+
+btn.onclick = function() {
+    change.classList.toggle("active");
+}
+
+document.addEventListener('click', function(event) {
+    if (!change.contains(event.target) && event.target !== btn) {
+        change.classList.remove("active");
+    }
+});

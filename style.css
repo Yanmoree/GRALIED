@@ -8,6 +8,7 @@ header {
     background-color: rgb(73, 73, 73);
     width: 100%;
     border-bottom: 0.2vw solid rgb(59, 59, 59);
+    z-index: 1000;
 }
 h1 {
     font-family: Orbitron;
@@ -17,6 +18,7 @@ h1 {
 }
 .src {
     padding: 1.5vw 0 0 7vw;
+    display: flex;
 }
 input {
     width: 20vw;
@@ -51,7 +53,10 @@ input::placeholder {
 button[type=submit] {
     font-family: Ruslan Display;
     font-size: 1vw;
-    margin-left: -4.7vw;
+    margin-top: 0.1vw;
+    height: 1.8vw;
+    margin-left: -4.5vw;
+    /* margin-left: -4.7vw; */
     padding-top: 0.3vw;
     border: 2px solid rgb(43, 43, 43);
     background-color: rgb(94, 94, 94);
@@ -138,6 +143,8 @@ header a:hover {
     border: 1px solid #555555;
     border-radius: 2vw;
     width: 20%;
+    position: relative;
+    z-index: 2;
 }
 .sign-content {
     background-color: rgb(66, 66, 66);
@@ -229,7 +236,8 @@ main {
     gap: 1.6vw;
     justify-content: center;
 }
-.man1 button {
+.photo {
+    min-width: 15vw;
     width: 15vw;
     height: 15vw;
     border-radius: 1vw;
@@ -240,13 +248,15 @@ main {
     text-align: center;
     color: whitesmoke;
     top: 0;
+    z-index: 2;
+}
+.photo:hover {
     position: relative;
     transition: top ease 0.5s;
-}
-.man1 button:hover {
+    background-color: rgb(97, 97, 97);
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.3);
     top: -10px;
+    z-index: 0;
 }
 .woman h1 {
     font-size: 2vw;
@@ -258,25 +268,6 @@ main {
     display: flex;
     gap: 1.6vw;
     justify-content: center;
-}
-.woman1 button {
-    width: 15vw;
-    height: 15vw;
-    border-radius: 1vw;
-    background-color: rgb(116, 116, 116);
-    border: 0.2vw solid rgb(77, 77, 77);
-    font-family: Ruslan Display;
-    font-size: 1vw;
-    text-align: center;
-    color: whitesmoke;
-    top: 0;
-    position: relative;
-    transition: top ease 0.5s;
-}
-.woman1 button:hover {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.3);
-    top: -10px;
 }
 .end {
     margin-top: 2vw;
@@ -296,24 +287,126 @@ main {
     cursor: pointer;
     color: rgba(212, 212, 212, 0.801);
 }
-.menu {
+.changebtn {
     position: fixed;
-    margin-top: -1.65vw;
-    width: 20vw;
-    height: 50vw;
-    background-color: rgb(70, 70, 70);
-}
-.menu h1 {
-    padding: 1vw;
-    font-size: 2vw;
+    width: 2.5vw;
+    height: 2.5vw;
+    background-color: rgb(65, 65, 65);
+    border: 0.2vw solid rgb(47, 47, 47);
+    color: whitesmoke;
     font-family: Ruslan Display;
+    font-size: 2vw;
+    z-index: 1000;
+    transition: all 0.3s ease; /* Добавляем transition для всех изменяемых свойств */
+}
+
+.changebtn:hover {
+    cursor: pointer;
+    background-color: rgb(77, 77, 77);
+    width: 4vw;
+}
+.change {
+    width: 20vw;
+    height: 30vw;
+    background-color: rgb(74, 74, 74);
+    border: 0.2vw solid rgb(66, 66, 66);
+    position: fixed;
+    left: -22vw;
+    text-align: center;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto
+}
+
+.change.active {
+    left: 0;
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) translateY(0);
+    }
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    pointer-events: none;
+}
+
+.change.active ~ .overlay {
+    opacity: 1;
+    visibility: visible;
+}
+.change h1 {
+    color: whitesmoke;
+    font-family: Ruslan Display;
+    font-size: 2vw;
+    padding: 0.5vw;
+}
+.change input {
+    width: 18vw;
+}
+.price {
+    display: flex;
+    justify-content: center;
+    gap: 0.5vw;
+}
+.price .minPrice {
+    width: 7.9vw;
+}
+.minPrice::placeholder {
+    font-size: 1vw;
     text-align: center;
 }
-.glav {
-    margin-top: -2vw;
-    width: 100%;
-    height: 100vw;
-    background-color: rgb(128, 128, 128);
+.price .maxPrice {
+    width: 7.9vw;
+}
+.maxPrice::placeholder {
+    font-size: 1vw;
+    text-align: center;
+}
+.price label {
+    font-size: 2vw;
+    align-content: center;
+}
+.apply {
+    width: 10vw;
+    height: 2vw;
+    background-color: rgb(116, 116, 116);
+    color: whitesmoke;
+    font-family: Ruslan Display;
+    font-size: 1vw;
+    border: 0.2vw solid rgb(77, 77, 77);
+    border-radius: 0.5vw;
+    margin-top: 4vw;
+}
+.shopper {
     display: flex;
-    margin-left: 20vw;
+    justify-content: center;
+    gap: 1vw;
+    flex-wrap: wrap;
+}
+.item {
+    display: grid;
+}
+.item label {
+    background-color: #555555;
+    height: 4vw;
+    margin-top: -2.5vw;
+    padding-top: 3vw;
+    padding-left: 1vw;
+    border-radius: 1vw;
 }

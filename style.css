@@ -79,7 +79,7 @@ header a:hover {
 }
 .atxt {
     padding-top: 2vw;
-    padding-left: 5vw;
+    padding-left: 7vw;
 }
 .modal {
     display: none;
@@ -144,7 +144,7 @@ header a:hover {
     border-radius: 2vw;
     width: 20%;
     position: relative;
-    z-index: 2;
+    z-index: 1000;
 }
 .sign-content {
     background-color: rgb(66, 66, 66);
@@ -153,6 +153,8 @@ header a:hover {
     border: 1px solid #555555;
     border-radius: 2vw;
     width: 20%;
+    position: relative;
+    z-index: 1000;
 }
 .close {
     color: #aaa;
@@ -248,15 +250,14 @@ main {
     text-align: center;
     color: whitesmoke;
     top: 0;
+    transition: all 0.35s ease;
     z-index: 2;
 }
 .photo:hover {
-    position: relative;
-    transition: top ease 0.5s;
     background-color: rgb(97, 97, 97);
     cursor: pointer;
-    top: -10px;
-    z-index: 0;
+    height: 16vw;
+    width: 16vw;
 }
 .woman h1 {
     font-size: 2vw;
@@ -289,21 +290,21 @@ main {
 }
 .changebtn {
     position: fixed;
-    width: 2.5vw;
-    height: 2.5vw;
-    background-color: rgb(65, 65, 65);
-    border: 0.2vw solid rgb(47, 47, 47);
+    width: 2vw;
+    height: 2vw;
+    background-color: #555555;
+    border: 0.15vw solid rgb(59, 59, 59);
     color: whitesmoke;
     font-family: Ruslan Display;
-    font-size: 2vw;
-    z-index: 1000;
-    transition: all 0.3s ease; /* Добавляем transition для всех изменяемых свойств */
+    font-size: 1.8vw;
+    transition: all 0.3s ease;
+    z-index: 100;
 }
 
 .changebtn:hover {
-    cursor: pointer;
-    background-color: rgb(77, 77, 77);
     width: 4vw;
+    cursor: pointer;
+    background-color: #6d6d6d;
 }
 .change {
     width: 20vw;
@@ -315,7 +316,8 @@ main {
     text-align: center;
     transition: left 0.3s ease;
     z-index: 1000;
-    overflow-y: auto
+    overflow-y: auto;
+    margin-top: 2.5vw;
 }
 
 .change.active {
@@ -409,4 +411,95 @@ main {
     padding-top: 3vw;
     padding-left: 1vw;
     border-radius: 1vw;
+}
+.infitem {
+    display: flex;
+    gap: 2vw;
+    max-height: 25vw;
+}
+.imgitem {
+    display: flex;
+    margin-top: 3vw;
+    margin-left: 5vw;
+    width: 25vw;
+    height: 25vw;
+    background-color: #555555;
+    background-position: center;
+    background-size: 30vw ;
+    /* background-image: url(https://cdn1.ozone.ru/s3/multimedia-1-z/7091173439.jpg); */
+    border: 0.2vw solid rgb(43, 43, 43);
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    font-size: 3vw;
+    font-family: Ruslan Display;
+    transition: all 0.5s ease;
+}
+.imgitem:hover {
+    width: 30vw;
+    height: 30vw;
+}
+.txtitem {
+    margin-top: 1.5vw;
+}
+.txtitem h1 {
+    font-family: Ruslan Display;
+    font-size: 2vw;
+}
+.txtitem p {
+    font-family: Ruslan Display;
+    color: whitesmoke;
+}
+.brand {
+    display: flex;
+}
+.btnbuy {
+    display: flex;
+    margin: 0;
+    padding-top: 12vw;
+    width: 100%;
+    height: 5vw;
+    justify-content: center;
+}
+.buybtn {
+    width: 10vw;
+    height: 3vw;
+    color: whitesmoke;
+    font-family: Ruslan Display;
+    font-size: 1vw;
+    background-color: #555555;
+    border: 0.15vw solid rgb(59, 59, 59);
+    transition: all 0.3s ease;
+}
+.buybtn:hover {
+    cursor: pointer;
+    background-color: #646464;
+    width: 11vw;
+    height: 3.4vw;
+}
+.back {
+    position: fixed;
+    width: 2vw;
+    height: 2vw;
+    background-color: #555555;
+    border: 0.15vw solid rgb(59, 59, 59);
+    color: whitesmoke;
+    font-family: Ruslan Display;
+    font-size: 1.8vw;
+    transition: all 0.3s ease;
+}
+.back:hover {
+    width: 4vw;
+    cursor: pointer;
+    background-color: #6d6d6d;
+}
+.rectangle {
+    display: flex;
+    justify-content: center;
+}
+.rectangle-1 {
+    width: 50vw;
+    height: 40vw;
+    text-align: center;
+    background-color: #464646;
 }
